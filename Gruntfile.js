@@ -3,6 +3,11 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     concat: {
+      dist: {
+        src: ['./public/client/app.js','./public/client/link.js','./public/client/links.js','./public/client/linkView.js',
+              './public/client/linksView.js','./public/client/createLinkView.js','./public/client/router.js'],
+        dest: './public/built.js',
+      },
     },
 
     mochaTest: {
@@ -21,11 +26,17 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      my_target: {
+        files: {
+          './public/builtUglify.js': ['./public/built.js']
+        }
+      }
     },
 
     eslint: {
       target: [
-        // Add list of files to lint here
+        'server.js', 'server-config.js', './app/collections/links.js', './app/collections/users.js',
+        './app/models/link.js', './app/models/user.js', './app/config.js', './public/built.js'
       ]
     },
 
@@ -77,7 +88,6 @@ module.exports = function(grunt) {
     grunt.task.run([ 'watch' ]);
   });
 
-
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
@@ -93,8 +103,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', [
-  ]);
+  grunt.registerTask('build', ['concat','uglify','eslint']);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
