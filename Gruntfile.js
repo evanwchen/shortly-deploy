@@ -6,7 +6,7 @@ module.exports = function(grunt) {
       dist: {
         src: ['./public/client/app.js','./public/client/link.js','./public/client/links.js','./public/client/linkView.js',
               './public/client/linksView.js','./public/client/createLinkView.js','./public/client/router.js'],
-        dest: './public/built.js',
+        dest: './public/dist/built.js',
       },
     },
 
@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          './public/builtUglify.js': ['./public/built.js'],
+          './public/dist/builtUglify.js': ['./public/dist/built.js'],
         }
       }
     },
@@ -43,7 +43,7 @@ module.exports = function(grunt) {
     cssmin: {
       target: {
         files: {
-          './public/styleUglify.css': ['./public/style.css']
+          './public/dist/styleUglify.css': ['./public/style.css']
         }
       }
     },
