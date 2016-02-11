@@ -94,13 +94,6 @@ module.exports = function(grunt) {
     grunt.task.run([ 'watch' ]);
   });
 
-  // grunt.registerTask('prod', function(n) {
-  //   if (grunt.option('prod')) {
-  //     // add your production server task here
-  //   }
-  //   grunt.task.run([ 'server-dev' ]);
-  // });
-
   ////////////////////////////////////////////////////
   // Main grunt tasks
   ////////////////////////////////////////////////////
