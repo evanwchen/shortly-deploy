@@ -28,7 +28,7 @@ module.exports = function(grunt) {
     uglify: {
       my_target: {
         files: {
-          './public/builtUglify.js': ['./public/built.js']
+          './public/builtUglify.js': ['./public/built.js'],
         }
       }
     },
@@ -41,6 +41,11 @@ module.exports = function(grunt) {
     },
 
     cssmin: {
+      target: {
+        files: {
+          './public/styleUglify.css': ['./public/style.css']
+        }
+      }
     },
 
     watch: {
@@ -103,7 +108,7 @@ module.exports = function(grunt) {
     'mochaTest'
   ]);
 
-  grunt.registerTask('build', ['concat','uglify','eslint']);
+  grunt.registerTask('build', ['concat','uglify','eslint', 'cssmin']);
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
