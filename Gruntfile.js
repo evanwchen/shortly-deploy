@@ -111,6 +111,6 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('deploy', ['eslint', 'mochaTest']);
+  grunt.registerTask('deploy', ['eslint', 'mochaTest', 'upload']);
 
 };
