@@ -4,9 +4,7 @@ var mongoose = require('mongoose');
 
 var userSchema = mongoose.Schema({
   username: { type: String, index: { unique: true} },
-  password: String,
-  createdAt: Date,
-  updatedAt: Date
+  password: String
 });
 
 var User = mongoose.model('User', userSchema);
@@ -28,9 +26,6 @@ userSchema.pre('save', function(next){
       this.password = hash;
       next();
     });
-});
-
-
 });
 
 module.exports = User;

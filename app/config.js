@@ -1,8 +1,6 @@
-var path = require('path');
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
 
-mongoose.connect('mongodb://localhost/my_database'); 
+mongoose.connect('mongodb://localhost/shortlydb'); 
 
 var db = mongoose.connection;
 
@@ -11,6 +9,4 @@ db.once('open', function() {
   console.log('MongoDB connection open.');
 });
 
-module.exports = { 
-  db: db, 
-};
+module.exports = db;
